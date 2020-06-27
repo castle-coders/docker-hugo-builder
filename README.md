@@ -5,7 +5,7 @@ A container with tools installed to build a Hugo site. Intended for use with CI/
 ```
 podTemplate(
     containers: [
-      containerTemplate(name: 'hugo-build', image: 'your-name/hugo-build:latest', ttyEnabled: true, command: 'cat')
+      containerTemplate(name: 'hugo-builder', image: 'your-name/hugo-builder:latest', ttyEnabled: true, command: 'cat')
     ]
     )
 {
@@ -15,7 +15,7 @@ podTemplate(
     }
 
     stage('Build the Site') {
-      container('hugo-build'){
+      container('hugo-builder'){
         sh 'hugo'
       }
     }
